@@ -4,7 +4,7 @@
 Summary: Common RPM Macros for building EFI-related packages
 Name: efi-rpm-macros
 Version: 5
-Release: 1
+Release: 2
 License: GPLv3+
 URL: https://github.com/rhboot/%{name}/
 Source0: https://github.com/rhboot/%{name}/releases/download/%{version}/%{name}-%{version}.tar.bz2
