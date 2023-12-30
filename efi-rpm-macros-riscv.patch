@@ -1,0 +1,21 @@
+commit 2b71981cfe510aec03a0c1a30180ca80e1730906
+Author: rpm-build <rpm-build>
+Date:   Sun Dec 31 00:41:45 2023 +0100
+
+    efi-rpm-macros-riscv.patch
+
+diff --git a/macros.efi-srpm.in b/macros.efi-srpm.in
+index 00503f1..dce7ac4 100644
+--- a/macros.efi-srpm.in
++++ b/macros.efi-srpm.in
+@@ -35,6 +35,10 @@
+       return("ia32")
+     elseif arch("aarch64") then
+       return("aa64")
++    elseif arch("%{riscv64}") then
++      return("rv64")
++    elseif arch("%{riscv32}") then
++      return("rv32")
+     elseif arch("%{arm}") then
+       return("arm")
+     else

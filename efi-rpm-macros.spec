@@ -4,11 +4,13 @@
 Summary: Common RPM Macros for building EFI-related packages
 Name: efi-rpm-macros
 Version: 5
-Release: 2
+Release: 3
 License: GPLv3+
 URL: https://github.com/rhboot/%{name}/
 Source0: https://github.com/rhboot/%{name}/releases/download/%{version}/%{name}-%{version}.tar.bz2
 Patch0: https://src.fedoraproject.org/rpms/efi-rpm-macros/raw/rawhide/f/0001-Don-t-have-arm-as-an-alt-arch-of-aarch64.patch
+Patch1: https://src.fedoraproject.org/rpms/efi-rpm-macros/raw/rawhide/f/0002-Makefile-fix-permission-on-boot-efi-EFI.patch
+Patch2: efi-rpm-macros-riscv.patch
 BuildRequires: git
 BuildRequires: sed
 BuildArch: noarch
@@ -37,7 +39,7 @@ machine bootloaders and tools.
 %autosetup -S git
 git config --local --add efi.vendor "%{_efi_vendor_}"
 git config --local --add efi.esp-root /boot/efi
-git config --local --add efi.arches "x86_64 znver1 aarch64 %{arm} %{ix86}"
+git config --local --add efi.arches "%{x86_64} %{aarch64} %{arm} %{ix86} %{riscv}"
 
 %build
 %make_build clean all
