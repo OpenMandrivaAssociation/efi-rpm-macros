@@ -11,6 +11,7 @@ Source0: https://github.com/rhboot/%{name}/releases/download/%{version}/%{name}-
 Patch0: https://src.fedoraproject.org/rpms/efi-rpm-macros/raw/rawhide/f/0001-Don-t-have-arm-as-an-alt-arch-of-aarch64.patch
 Patch1: https://src.fedoraproject.org/rpms/efi-rpm-macros/raw/rawhide/f/0002-Makefile-fix-permission-on-boot-efi-EFI.patch
 Patch2: efi-rpm-macros-riscv.patch
+BuildRequires:	make
 BuildRequires: git
 BuildRequires: sed
 BuildArch: noarch
