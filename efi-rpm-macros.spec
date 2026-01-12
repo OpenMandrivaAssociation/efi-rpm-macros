@@ -4,7 +4,7 @@
 Summary: Common RPM Macros for building EFI-related packages
 Name: efi-rpm-macros
 Version: 5
-Release: 3
+Release: 4
 License: GPLv3+
 URL: https://github.com/rhboot/%{name}/
 Source0: https://github.com/rhboot/%{name}/releases/download/%{version}/%{name}-%{version}.tar.bz2
@@ -40,7 +40,7 @@ machine bootloaders and tools.
 %autosetup -S git
 git config --local --add efi.vendor "%{_efi_vendor_}"
 git config --local --add efi.esp-root /boot/efi
-git config --local --add efi.arches "%{x86_64} %{aarch64} %{arm} %{ix86} %{riscv}"
+git config --local --add efi.arches "%{x86_64} %{aarch64} %{arm} %{ix86} %{riscv} %{loongarch64}"
 
 %build
 %make_build clean all

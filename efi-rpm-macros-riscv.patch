@@ -1,16 +1,18 @@
-commit 2b71981cfe510aec03a0c1a30180ca80e1730906
-Author: rpm-build <rpm-build>
-Date:   Sun Dec 31 00:41:45 2023 +0100
-
-    efi-rpm-macros-riscv.patch
-
 diff --git a/macros.efi-srpm.in b/macros.efi-srpm.in
-index 00503f1..dce7ac4 100644
+index 00503f1..9800447 100644
 --- a/macros.efi-srpm.in
 +++ b/macros.efi-srpm.in
-@@ -35,6 +35,10 @@
+@@ -29,21 +29,27 @@
+   local function getarch()
+     if arch("ia64") then
+       return("ia64")
+-    elseif arch("x86_64") then
++    elseif arch("%{x86_64}") then
+       return("x64")
+     elseif arch("%{ix86}") then
        return("ia32")
-     elseif arch("aarch64") then
+-    elseif arch("aarch64") then
++    elseif arch("%{aarch64}") then
        return("aa64")
 +    elseif arch("%{riscv64}") then
 +      return("rv64")
@@ -18,4 +20,16 @@ index 00503f1..dce7ac4 100644
 +      return("rv32")
      elseif arch("%{arm}") then
        return("arm")
++    elseif arch("%{loongarch64}") then
++      return("loongarch64")
      else
+       return("none")
+     end
+   end
+   -- alt arch
+   local function getaltarch()
+-    if arch("x86_64") then
++    if arch("%{x86_64}") then
+       return("ia32")
+     else
+       return("none")
